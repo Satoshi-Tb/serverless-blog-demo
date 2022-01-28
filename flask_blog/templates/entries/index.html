@@ -36,21 +36,20 @@
                 </ul>
             </div>
         </nav>
-        <div class="blog-body">
-            <h2>{{entry.title}}</h2>
-            <br>{{entry.text|safe}}
-            <br>
-            <br>投稿日時 {{entry.created_at}}
-            <br>
 
-            <div class="btn-group">
-                <form action="{{url_for('edit_entry', article_id=entry.id)}}" method="get">
-                    <button type="submit" class="btn btn-secondary">編集</button>
-                </form>
-                <form action="{{url_for('delete_entry', article_id=entry.id)}}" method="post">
-                    <button type="submit" class="btn btn-danger" style="margin-left:5px">削除</button>
-                </form>
-            </div>
+        <div class="blog-body">
+            <ul class="list-group list-group-flush">
+                {% for entry in entries %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ entry.title }}</h5>
+                        <a href="{{ url_for('show_entry', article_id=entry.id) }}" class="card-link">続きを読む</a>
+                    </div>
+                </div>
+                {% else %}
+                投稿がありません
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </body>

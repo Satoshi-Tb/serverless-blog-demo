@@ -5,7 +5,26 @@ from datetime import datetime
 
 @app.route("/")
 def show_entries():
-    return "全ての記事を表示"
+    entries = [
+        {
+            "id": 1,
+            "title": "はじめての投稿",
+            "text": "はじめての内容",
+            "created_at": datetime.now(),
+        },
+        {
+            "id": 2,
+            "title": "2つ目の投稿",
+            "text": "２つ目の内容",
+            "created_at": datetime.now(),
+        },
+    ]
+
+    user = {
+        "is_authenticated": True
+    }
+
+    return render_template("entries/index.html", entries=entries, current_user=user)
 
 
 @app.route("/entries", methods=["POST"])
@@ -26,9 +45,11 @@ def show_entry(article_id):
         "text": "はじめての内容",
         "created_at": datetime.now(),
     }
+
     user = {
         "is_authenticated": True
     }
+
     return render_template("entries/show.html", entry=entry, current_user=user)
 
 
