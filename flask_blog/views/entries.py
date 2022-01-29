@@ -34,7 +34,11 @@ def add_entry():
 
 @app.route("/entries/new", methods=["GET"])
 def new_entry():
-    return "記事の入力フォームを表示"
+    user = {
+        "is_authenticated": True
+    }
+
+    return render_template("entries/new.html", current_user=user)
 
 
 @app.route("/entries/<int:article_id>", methods=["GET"])
@@ -55,7 +59,18 @@ def show_entry(article_id):
 
 @app.route("/entries/<int:article_id>/edit", methods=["GET"])
 def edit_entry(article_id):
-    return f"記事{article_id}の編集画面を表示"
+    entry = {
+        "id": 1,
+        "title": "はじめての投稿",
+        "text": "はじめての内容",
+        "created_at": datetime.now(),
+    }
+
+    user = {
+        "is_authenticated": True
+    }
+
+    return render_template("entries/edit.html", entry=entry, current_user=user)
 
 
 @app.route("/entries/<int:article_id>/update", methods=["POST"])
