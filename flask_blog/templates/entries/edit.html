@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-<form action="{{url_for('update_entry', article_id=entry.id)}}" method="post" class="add-entry">
+<form action="{{url_for('update_entry', article_id=entry.article_id)}}" method="post" class="add-entry">
   <div class="form-group">
     <label for="InputTitle">タイトル</label>
     <input type="text" class="form-control" id="InputTitle" name="title" value="{{entry.title}}">
