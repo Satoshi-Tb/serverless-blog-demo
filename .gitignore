@@ -143,3 +143,5 @@ cython_debug/
 /media/images/*.*
 !.gitkeep
 /staticfiles
+zappa_settings.json
+serverless-blog*.zip

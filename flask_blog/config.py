@@ -28,6 +28,7 @@ class ProductionConfig(CommonConfig):
     AWS_SECRET_ACCESS_KEY = os.environ.get('SERVERLESS_AWS_SECRET_KEY')
     DYNAMODB_ENDPOINT_URL = None
     SECRET_KEY = os.environ.get('SERVERLESS_SECRET_KEY')
+    USERNAME = os.environ.get('SERVERLESS_USERNAME')
     PASSWORD = os.environ.get('SERVERLESS_USER_PW')
 
     SESSION_DYNAMODB_KEY_ID = AWS_ACCESS_KEY_ID
