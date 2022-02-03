@@ -18,7 +18,7 @@ Session(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-from flask_blog.lib.utils import setup_auth
+from flask_blog.util.utils import setup_auth
 setup_auth(login_manager)
 
 from flask_blog.views import entries, views

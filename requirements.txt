@@ -1,5 +1,5 @@
 boto3
-Flask==1.1.4
+Flask==2.0.1
 Flask-Script
 flask-login
 flask-sessionstore
