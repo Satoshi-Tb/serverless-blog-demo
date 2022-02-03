@@ -1,0 +1,7 @@
+boto3
+Flask==1.1.4
+Flask-Script
+flask-login
+flask-sessionstore
+pynamodb
+zappa
